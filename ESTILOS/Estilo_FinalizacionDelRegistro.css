@@ -1,0 +1,121 @@
+/**CSS 
+*/
+body{
+    background: #E8EAEE;
+}
+
+.espacio{
+    padding-top: 130px;
+}
+
+.titles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuerpo{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.segundo_cuadro{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.ordenes{
+    margin-top: 35px;
+    text-align: end;
+}
+
+.ordenes h3{
+    margin-bottom: 30px;
+}
+
+.inputs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.inputs input {
+    margin-top: 1.3em;
+    margin-left: 1em;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+}
+.caracteristicas{   
+    margin-top: 5px; 
+    color: rgb(104, 104, 104);
+    width: 600px;
+}
+.caracteristicas h4{
+    padding-bottom: 33px;
+}
+.selectclass{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.opciones{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    width: 100px;
+}
+.nombresuelo{
+    display: flex;
+    justify-content: center;
+}
+#suelo{
+    position: relative;
+    left: 0.5em;
+}
+
+.css-boton {
+    display: inline-block;
+    background-color: #E6E6E6;
+    padding: .5em 1em;
+    color: #444;
+    font-family: inherit;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-right: 5px;
+    margin-right: 100px;
+}
+.Finalizar{
+    background: black;
+    color: aliceblue;
+    border: none;
+    position: relative;
+    height: 2.5rem;
+}
+.Finalizar:hover{
+    background: rgb(59, 59, 59);
+}
+.btnfinal{
+    display: flex;
+    justify-content: flex-end;
+}
+@keyframes animate{
+	from{
+		transform: scale(1,0);
+		opacity: 0;	
+	}
+	to{
+		transform: scale(1,1);
+		opacity: 1;
+	}
+}
+.Data{
+	padding-top: 130px;
+}
