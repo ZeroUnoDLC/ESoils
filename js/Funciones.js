@@ -71,7 +71,6 @@ async function login() {
     try {
         let res = await getId("login", data);
         // Aquí puedes hacer algo con el resultado obtenido
-        alert(res);
         if(res!="null"){
             localStorage.setItem('id_user', res);
             window.location.href = "Index.html";
