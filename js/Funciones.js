@@ -121,3 +121,34 @@ let data=JSON.parse(cadena);
         console.log(error);
     }
 }
+
+async function PostRegistro_Suelos() {
+
+    
+    let inputs = document.getElementsByTagName("input");
+    //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
+    //localStorage.setItem("nombreDato", "valorDato"); -> nomenclatura agregar dato
+    //localStorage.setItem("nombreDato", "nuevovalor"); -> actualizar dato
+
+
+    // let data = {
+    //     name: inputs[0].value,
+    //     surname: inputs[1].value,
+    //     id_number: inputs[2].value,
+    //     email: inputs[3].value,
+    //     password: inputs[4].value,
+    //     r_password: inputs[5].value
+    // };
+
+    // try {
+    //     //console.log(data);
+    //     const res = await getId("postRegistro_Usuario1", data);
+    //     // Aquí puedes hacer algo con el resultado obtenido
+    //     alert(res);
+    //     localStorage.setItem("datos_registro", res);
+    //     window.location.href = "Sign-up-2.html";
+        
+    // } catch (error) {
+    //     console.log(error);
+    // }
+}
