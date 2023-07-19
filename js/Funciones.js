@@ -343,8 +343,7 @@ async function postClasification() {
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
         if (res != "null") {
-            //localStorage.setItem('id_user', res);
-            //alert("Successful registration completion");
+
         }
     } catch (error) {
         console.log(error);
@@ -378,7 +377,7 @@ async function postNomenclature() {
 }
 
 async function finalizarRegistro(){
-    postClasification();
+    //postClasification();
     postNomenclature();
 }
 
