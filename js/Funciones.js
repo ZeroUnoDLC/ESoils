@@ -341,10 +341,7 @@ async function postClasification() {
     try {
         const res = await getId("postClasification", data);
         // Aquí puedes hacer algo con el resultado obtenido
-        //alert(res);
-        if (res != "null") {
-
-        }
+        return res;
     } catch (error) {
         console.log(error);
     }
@@ -352,7 +349,6 @@ async function postClasification() {
 
 async function postNomenclature() {
     var nomenclature = document.getElementById("suelo").value;
-    alert(nomenclature);
     /*
     var ide_suelo = localStorage.getItem("ide_suelo"); */
     var ide_suelo = "SOILRRDSQw";
@@ -364,9 +360,8 @@ async function postNomenclature() {
 
     try {
         const res = await getId("postNomenclature", data);
-        alert(res);
-        if (res != "null") {
-            //localStorage.setItem('id_user', res);
+        if (res) {
+            localStorage.setItem('ide_suelo', "null");
             alert("Successful registration completion");
             localStorage.setItem("id_suelo","null");
             window.location = "./MisRegistros.html";
@@ -377,8 +372,9 @@ async function postNomenclature() {
 }
 
 async function finalizarRegistro(){
-    //postClasification();
-    postNomenclature();
+    if(postClasification()){
+        postNomenclature();
+    }
 }
 
 async function postRegistro_Usuario2() {
