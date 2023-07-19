@@ -141,7 +141,6 @@ async function postFisicas() {
             alert("Successfully Registered Physical Properties");
             //localStorage.setItem('id_user', res);
             location.href = "../PAGINAS/Quimicas-1.html";
-
         }
     } catch (error) {
         console.log(error);
@@ -198,7 +197,7 @@ async function postQuimicas() {
         if (res != "null") {
             alert("Successfully Registered Chemical Properties");
             //localStorage.setItem('id_user', res);
-            location.href = "../PAGINAS/Biologicas-1.html";
+            window.location = "./Biologicas-1.html";
         }
     } catch (error) {
         console.log(error);
@@ -317,7 +316,68 @@ async function postBiologicas2() {
     }
 }
 //CLASIFICATION
+async function postClasification() {
+    var orden = document.getElementById("opOrden").value
+    var suborden = document.getElementById("opSuborden").value;
+    var ggroup = document.getElementById("opGranGrupo").value;
+    var sgroup = document.getElementById("opSubGrupo").value;
+    /*
+    var idcli = localStorage.getItem("idcli"); 
+    var ide_suelo = localStorage.getItem("ide_suelo"); */
+    //var idcli = "0401751227"
+    var ide_suelo = "SOILRRDSQw";
 
+    let data = {
+        ide_suelo: ide_suelo,
+        orden: orden,
+        suborden: suborden,
+        ggroup: ggroup,
+        sgroup: sgroup,
+    }
+
+    try {
+        const res = await getId("postClasification", data);
+        // Aquí puedes hacer algo con el resultado obtenido
+        //alert(res);
+        if (res != "null") {
+            //localStorage.setItem('id_user', res);
+            alert("Successful registration completion");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function postNomenclature() {
+    var nomenclature = document.getElementById("suelo").value;
+    alert(nomenclature);
+    /*
+    var ide_suelo = localStorage.getItem("ide_suelo"); */
+    var ide_suelo = "SOILRRDSQw";
+
+    let data = {
+        ide_suelo: ide_suelo,
+        nomenclature: nomenclature
+    }
+
+    try {
+        const res = await getId("postNomenclature", data);
+        alert(res);
+        if (res != "null") {
+            //localStorage.setItem('id_user', res);
+            alert("Successful registration completion");
+            localStorage.setItem("id_suelo","null");
+            window.location = "./MisRegistros.html";
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function finalizarRegistro(){
+    //postClasification();
+    postNomenclature();
+}
 
 async function postRegistro_Usuario2() {
     let inputs = document.getElementsByTagName("input");

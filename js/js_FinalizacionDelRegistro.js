@@ -593,6 +593,7 @@ function agregarNombre(){
         let nsuborden = document.getElementById("opSuborden").value.toLowerCase();
         let ngrangrupo = document.getElementById("opGranGrupo").value;
         let nsubgrupo = opSubGrupo.value;
+        document.getElementById("suelo").value = nsubgrupo+" "+ngrangrupo+nsuborden+norden;
         document.getElementById("suelo").innerHTML = " <i>"+nsubgrupo+" "+ngrangrupo+nsuborden+norden+"</i>";
            // alert(nsubgrupo+ngrangrupo+nsuborden+norden);
     }
