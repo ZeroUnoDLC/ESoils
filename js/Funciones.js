@@ -390,18 +390,16 @@ async function PostRegistro_Suelos() {
     };
 
     console.log(data);
-    // try {
-    //     //console.log(data);
-    //     const res = await getId("PostRegistro_Suelos", data);
-    //     // Aquí puedes hacer algo con el resultado obtenido
-    //     alert(res);
-    //     localStorage.setItem("datos_registro_suelo", res);
-    //     window.location.href = "Fisicas-1.html";
-    //     localStorage.setItem("datos_registro", res);
-    //     window.location.href = "Sign-up-2.html";
+    try {
+        //console.log(data);
+        const res = await getId("PostRegistro_Suelos", data);
+        // Aquí puedes hacer algo con el resultado obtenido
+        alert(res);
+        localStorage.setItem("datos_registro_suelo", res);
+        window.location.href = "Fisicas-1.html";
 
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
