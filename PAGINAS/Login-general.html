@@ -13,7 +13,7 @@
 <body>
 	<div class="esp_img"><img src="../IMAGENES/Logo-version2.png" width="230" alt="" />
 		<h1><b>Log in</b></h1>
-		<form action="http://localhost:3000/login" method="post">
+		<div id="form_login">
 			<p>
 				<input type="text" name="idcli" id="email" class="boxes" placeholder="Email">
 			</p>
@@ -25,10 +25,10 @@
 			<div class="cont_btn_login">
 				<div class="cont_aux_btn_login">
 					<p id="arrow">🡢</p>
-					<button id="submit">Log in</button>
+					<button id="submit" onclick="login()">Log in</button>
 				</div>
 			</div>
-		</form>
+		</div>
 		<div id="final_txt">
 			<p id="without_account">Don't have an account?</p>
 			<a href="Sign-up-1.html" class="btn-log-sign"><b>Sign up</b></a>
@@ -36,5 +36,5 @@
 	</div>
 
 </body>
-
+<script src="../js/Funciones.js"></script>
 </html>
