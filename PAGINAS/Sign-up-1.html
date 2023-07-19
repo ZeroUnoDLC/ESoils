@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<form action="http://localhost:3000/postRegistro_Usuario1" method="post" class="esp_img"><img src="../IMAGENES/Logo-version2.png" width="230" alt="" />
+	<div class="esp_img"><img src="../IMAGENES/Logo-version2.png" width="230" alt="" />
 		<h1><b>Sign up</b></h1>
 		<p>
 			<input type="text" name="name" id="name" class="boxes" placeholder="Name">
@@ -34,15 +34,15 @@
 		<div class="cont_btn_login">
 			<div class="cont_aux_btn_login">
 				<p id="arrow">🡢</p>
-				<button id="submit">Sign up</button>
+				<button id="submit" onclick="postRegistro_Usuario1()">Sign up</button>
 			</div>
 		</div>
 		<div id="final_txt">
 			<p id="without_account">Already have an account?</p>
 			<a href="Login-general.html" class="btn-log-sign"><b>Log in</b></a>
 		</div>
-	</form>
-
+	</div>
+<script src="../js/Funciones.js"></script>
 </body>
 
 </html>
