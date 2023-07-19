@@ -1,11 +1,10 @@
 function logout(){
     localStorage.setItem("id_user","null");
     window.location.href = "Index.html";
+    alert("Log out");
 }
 function cambiar_header() {
     let id_user = localStorage.getItem("id_user");
-    alert(id_user);
-
     if (id_user != "null") {
         document.getElementById("header").innerHTML = `
     <img src="../IMAGENES/Logo.png" width="168.32" height="154" alt="Logo ESoils" class="Logo" />

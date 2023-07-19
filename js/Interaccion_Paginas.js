@@ -20,11 +20,21 @@ function signin() {
 }
 
 function myregisters() {
-    window.location.href = "MisRegistros.html";
+    let id_user = localStorage.getItem("id_user");
+    if (id_user != "null") {
+        window.location.href = "MisRegistros.html";
+    }else{
+        window.open("Login-general.html", "_blank"); 
+    }
 }
 
 function nuevoregistro() {
-    window.location.href = "Photo_Location.html";
+    let id_user = localStorage.getItem("id_user");
+    if (id_user != "null") {
+        window.location.href = "Photo_Location.html"
+    }else{
+        window.open("Login-general.html", "_blank"); 
+    };
 }
 
 function aboutus() {
