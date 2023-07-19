@@ -1,31 +1,30 @@
-let idnumber =document.getElementById("code_number");
-window.onload = function() { 
-    if(idnumber!=null){
+let idnumber = document.getElementById("code_number");
+window.onload = function () {
+    if (idnumber != null) {
         console.log("testtting_code");
-        idnumber.addEventListener("input",function(){
+        idnumber.addEventListener("input", function () {
             // La cadena que quieres convertir
-var cadena = localStorage.getItem("datos_registro");
+            var cadena = localStorage.getItem("datos_registro");
 
-// Usar JSON.parse() para convertir la cadena en un objeto
-var objeto = JSON.parse(cadena);
+            // Usar JSON.parse() para convertir la cadena en un objeto
+            var objeto = JSON.parse(cadena);
 
-// Mostrar el objeto en la consola
-console.log(objeto);
+            // Mostrar el objeto en la consola
+            console.log(objeto);
 
-            if(idnumber.value==objeto.randomNumber){
-                let submit=document.getElementById("submit");
-                submit.disabled=false;
-            }else{
-                submit.disabled=true;
+            if (idnumber.value == objeto.randomNumber) {
+                let submit = document.getElementById("submit");
+                submit.disabled = false;
+            } else {
+                submit.disabled = true;
             }
         });
     }
 }
 
-//////////////////////////////////
-//////VARIABLE URL NECESARIA//////
+//URL NECESARIA
 const url = "http://localhost:3000/";//no modificar, se modifica cuando esté en produccion
-//////FUNCIONES NECESARIAS PARA INTRODUCIR DATOS, NO MODIFICAR////
+//FUNCION NECESARIA
 async function postId(url, data) {
     const response = await fetch(url, {
         method: "POST",
@@ -46,7 +45,7 @@ async function getId(direccion, data) {
         console.log(error);
     }
 }
-//////////////////Funciones////////////////////
+//Funciones
 async function login() {
     let idcli = document.getElementsByName("idcli")[0].value;
     let passwordcli = document.getElementsByName("passwordcli")[0].value;
@@ -62,10 +61,10 @@ async function login() {
         const res = await getId("login", data);
         // Aquí puedes hacer algo con el resultado obtenido
         alert(res);
-        if(res==null){
+        if (res == null) {
             alert("inicio exitoso");
             localStorage.setItem('id_user', res);
-        }else{
+        } else {
             alert("credenciales incorrectas");
         }
     } catch (error) {
@@ -86,9 +85,9 @@ async function postRegistro_Usuario1() {
         password: inputs[4].value,
         r_password: inputs[5].value
     };
-
+}
 //////////////FORMULARIO FÍSICAS////////////////////////////////
-async function postFisicas(){
+async function postFisicas() {
     let apparent_density = document.getElementsByName("apparent_density")[0].value;
     let real_density = document.getElementsByName("real_density")[0].value;
     let relative_density = document.getElementsByName("relative_density")[0].value;
@@ -120,24 +119,25 @@ async function postFisicas(){
     //var idcli = "0401751227"
     var ide_suelo = "SOILRRDSQw";
 
-    let data = { ide_suelo: ide_suelo,
-        apparent_density : apparent_density, real_density : real_density, 
-        relative_density : relative_density, maximum_dry_density : maximum_dry_density, 
-        compressive_strength : compressive_strength,thermal_conductivity : thermal_conductivity,
-        liquid : liquid, plastic : plastic, silt: silt, clay : clay,
-        gravel : gravel, sand: sand, optimum_moisture_content: optimum_moisture_content, 
-        plasticity_index: plasticity_index, grain_size : grain_size,
-        water_content: water_content, color: color, tensile_strength:tensile_strength, 
-        porosity:porosity, initial_moisture:initial_moisture,earring:earring, 
-        ground_altitude:ground_altitude, average_temperature:average_temperature, 
-        rainfall_regime:rainfall_regime
+    let data = {
+        ide_suelo: ide_suelo,
+        apparent_density: apparent_density, real_density: real_density,
+        relative_density: relative_density, maximum_dry_density: maximum_dry_density,
+        compressive_strength: compressive_strength, thermal_conductivity: thermal_conductivity,
+        liquid: liquid, plastic: plastic, silt: silt, clay: clay,
+        gravel: gravel, sand: sand, optimum_moisture_content: optimum_moisture_content,
+        plasticity_index: plasticity_index, grain_size: grain_size,
+        water_content: water_content, color: color, tensile_strength: tensile_strength,
+        porosity: porosity, initial_moisture: initial_moisture, earring: earring,
+        ground_altitude: ground_altitude, average_temperature: average_temperature,
+        rainfall_regime: rainfall_regime
     }
-    
+
     try {
         const res = await getId("postFisicas", data);
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
-        if(res!="null"){
+        if (res != "null") {
             alert("Successfully Registered Physical Properties");
             //localStorage.setItem('id_user', res);
             location.href = "../PAGINAS/Quimicas-1.html";
@@ -148,7 +148,7 @@ async function postFisicas(){
     }
 }
 
-async function postQuimicas(){
+async function postQuimicas() {
     let alkalinity_or_acidity = document.getElementsByName("alkalinity_or_acidity")[0].value;
     let organic_material = document.getElementsByName("organic_material")[0].value;
     let total_phosphorus = document.getElementsByName("total_phosphorus")[0].value;
@@ -171,7 +171,8 @@ async function postQuimicas(){
     //var idcli = "0401751227"
     var ide_suelo = "SOILRRDSQw";
 
-    let data = { ide_suelo: ide_suelo,
+    let data = {
+        ide_suelo: ide_suelo,
         alkalinity_or_acidity: alkalinity_or_acidity,
         organic_material: organic_material,
         total_phosphorus: total_phosphorus,
@@ -188,13 +189,13 @@ async function postQuimicas(){
         extractable_zinc: extractable_zinc,
         boron: boron
     }
-    
+
     console.log(data);
     try {
         const res = await getId("postQuimicas", data);
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
-        if(res!="null"){
+        if (res != "null") {
             alert("Successfully Registered Chemical Properties");
             //localStorage.setItem('id_user', res);
             location.href = "../PAGINAS/Biologicas-1.html";
@@ -205,7 +206,7 @@ async function postQuimicas(){
 }
 
 ////////////////BIOLOGICAAAAAAAAS////////////////
-async function postBiologicas(){
+async function postBiologicas() {
     let organisms_description = document.getElementsByName("organisms_description")[0].value;
     let microbial_activity = document.getElementsByName("microbial_activity")[0].value;
     let microbial_intensity = document.getElementsByName("microbial_intensity")[0].value;
@@ -224,7 +225,7 @@ async function postBiologicas(){
     //var idcli = "0401751227"
     var ide_suelo = "SOILRRDSQw";
 
-    let data = { 
+    let data = {
         ide_suelo: ide_suelo,
         organisms_description: organisms_description,
         microbial_activity: microbial_activity,
@@ -236,14 +237,14 @@ async function postBiologicas(){
         macroinvertebrates_description: macroinvertebrates_description,
         average_depth: average_depth,
         measurement_method: measurement_method,
-        additional_remarks : additional_remarks
+        additional_remarks: additional_remarks
     }
-    
+
     try {
         const res = await getId("postBiologicas", data);
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
-        if(res!="null"){
+        if (res != "null") {
             //localStorage.setItem('id_user', res);
 
 
@@ -253,7 +254,8 @@ async function postBiologicas(){
     }
 }
 
-async function postBiologicas1(){
+//MINIFORMULARIOS BIOLOGICAS
+async function postBiologicas1() {
     let organism = document.getElementById("organism").value;
     let number_organism = document.getElementById("number_organism").value;
 
@@ -263,20 +265,21 @@ async function postBiologicas1(){
     //var idcli = "0401751227"
     var ide_suelo = "SOILRRDSQw";
 
-    let data = { ide_suelo: ide_suelo,
+    let data = {
+        ide_suelo: ide_suelo,
         organism: organism,
         number_organism: number_organism
     }
-    
+
     console.log(data);
     try {
-        const res = await getId("postBiologicas1", data);
+        const res = await getId("organism", data);
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
-        if(res!="null"){
+        if (res != "null") {
             //localStorage.setItem('id_user', res);
             var txtOrganisms = document.getElementById("txtOrganisms");
-            txtOrganisms.innerHTML = txtOrganisms.value + "\n " + organism+": "+number_organism;
+            txtOrganisms.innerHTML = txtOrganisms.value + "\n " + organism + ": " + number_organism;
         }
     } catch (error) {
         console.log(error);
@@ -284,7 +287,7 @@ async function postBiologicas1(){
 }
 
 
-async function postBiologicas2(){
+async function postBiologicas2() {
     let macroinvertebrates = document.getElementById("macroinvertebrates").value;
     let number_macroinvertebrates = document.getElementById("numInvertebrates").value;
 
@@ -294,71 +297,27 @@ async function postBiologicas2(){
     //var idcli = "0401751227"
     var ide_suelo = "SOILRRDSQw";
 
-    let data = { ide_suelo: ide_suelo,
+    let data = {
+        ide_suelo: ide_suelo,
         macroinvertebrates: macroinvertebrates,
         number_macroinvertebrates: number_macroinvertebrates
     }
-    
+
     try {
-        const res = await getId("postBiologicas1", data);
+        const res = await getId("macroinvertebrates", data);
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
-        if(res!="null"){
+        if (res != "null") {
             //localStorage.setItem('id_user', res);
             var txtMacroinvertebrates = document.getElementById("txtMacroinvertebrates");
-            txtMacroinvertebrates.innerHTML = txtMacroinvertebrates.value + "\n " + macroinvertebrates+": "+number_macroinvertebrates;
+            txtMacroinvertebrates.innerHTML = txtMacroinvertebrates.value + "\n " + macroinvertebrates + ": " + number_macroinvertebrates;
         }
     } catch (error) {
         console.log(error);
     }
 }
+//CLASIFICATION
 
-
-////////////////CLASIFICATION///////////////
-async function postClasification(){
-    let orden = document.getElementById("opOrden").value;
-    let suborden= document.getElementById("opSuborden").value;
-    let ggroup= document.getElementById("opGranGrupo").value;
-    let sgroup= document.getElementById("opSubGrupo").value;
-
-    /*
-    var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
-
-    let data = { ide_suelo: ide_suelo,
-        orden: orden,
-        suborden: suborden,
-        ggropu: ggroup,
-        sgroup: sgroup
-    }
-    console.log("dataaaaaaaaaa\n"+data);
-    try {
-        const res = await getId("postClasification", data);
-        // Aquí puedes hacer algo con el resultado obtenido
-        //alert(res);
-        if(res!="null"){
-            //localStorage.setItem('id_user', res);
-            alert("Successful Registration Completion");
-            window.location("../PAGINAS/Menu_desplegable.html");
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-    try {
-        //console.log(data);
-        const res = await getId("postRegistro_Usuario1", data);
-        // Aquí puedes hacer algo con el resultado obtenido
-        alert(res);
-        localStorage.setItem("datos_registro", res);
-        window.location.href = "Sign-up-2.html";
-        
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 async function postRegistro_Usuario2() {
     let inputs = document.getElementsByTagName("input");
@@ -367,8 +326,8 @@ async function postRegistro_Usuario2() {
     //localStorage.setItem("nombreDato", "nuevovalor"); -> actualizar dato
     var cadena = localStorage.getItem("datos_registro");
 
-// Usar JSON.parse() para convertir la cadena en un objeto
-let data=JSON.parse(cadena);
+    // Usar JSON.parse() para convertir la cadena en un objeto
+    let data = JSON.parse(cadena);
 
     try {
         //console.log(data);
@@ -376,7 +335,7 @@ let data=JSON.parse(cadena);
         // Aquí puedes hacer algo con el resultado obtenido
         alert(res);
         window.location.href = "Login-general.html";
-        
+
     } catch (error) {
         console.log(error);
     }
@@ -384,7 +343,6 @@ let data=JSON.parse(cadena);
 
 async function PostRegistro_Suelos() {
 
-    
     let inputs = document.getElementsByTagName("input");
     //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
     //localStorage.setItem("nombreDato", "valorDato"); -> nomenclatura agregar dato
@@ -407,8 +365,9 @@ async function PostRegistro_Suelos() {
     //     alert(res);
     //     localStorage.setItem("datos_registro", res);
     //     window.location.href = "Sign-up-2.html";
-        
+
     // } catch (error) {
     //     console.log(error);
     // }
 }
+
