@@ -1,7 +1,6 @@
 function logout(){
     localStorage.setItem("id_user","null");
     window.location.href = "Index.html";
-    alert("Log out");
 }
 function cambiar_header() {
     let id_user = localStorage.getItem("id_user");
