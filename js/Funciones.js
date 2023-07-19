@@ -140,7 +140,7 @@ async function postFisicas() {
         if (res != "null") {
             alert("Successfully Registered Physical Properties");
             //localStorage.setItem('id_user', res);
-            location.href = "../PAGINAS/Quimicas-1.html";
+            window.location = "./Quimicas-1.html";
         }
     } catch (error) {
         console.log(error);
@@ -244,8 +244,9 @@ async function postBiologicas() {
         // Aquí puedes hacer algo con el resultado obtenido
         //alert(res);
         if (res != "null") {
+            alert("Successfully Registered Biological Properties");
             //localStorage.setItem('id_user', res);
-
+            window.location = "./FinalizacionDelRegistro.html";
 
         }
     } catch (error) {
@@ -315,6 +316,8 @@ async function postBiologicas2() {
         console.log(error);
     }
 }
+
+
 //CLASIFICATION
 async function postClasification() {
     var orden = document.getElementById("opOrden").value
@@ -341,7 +344,7 @@ async function postClasification() {
         //alert(res);
         if (res != "null") {
             //localStorage.setItem('id_user', res);
-            alert("Successful registration completion");
+            //alert("Successful registration completion");
         }
     } catch (error) {
         console.log(error);
@@ -375,7 +378,7 @@ async function postNomenclature() {
 }
 
 async function finalizarRegistro(){
-    //postClasification();
+    postClasification();
     postNomenclature();
 }
 
