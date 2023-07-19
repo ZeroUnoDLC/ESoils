@@ -31,6 +31,10 @@ function aboutus() {
     window.location.href = "About_us.html";
 }
 
+function myprofile(){
+    window.location.href = "EditProfile.html";
+}
+
 // var none1 = document.getElementById('none1');
 // var none2 = document.getElementById('none2');2
 // none1.disabled = true;

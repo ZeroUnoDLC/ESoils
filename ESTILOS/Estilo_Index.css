@@ -304,3 +304,15 @@
 	width: 400px;
 	justify-content: space-between;
 }
+ .MyProfile{
+	display: flex;
+	justify-content: center;
+	margin-right: 100px;
+	transition: filter 0.3s ease;
+	width: 150px;
+	z-index: 100;
+ }
+ .MyProfile:Hover{
+	filter: invert(30%) saturate(100%) hue-rotate(-10deg) brightness(90%) contrast(105%);
+	cursor: pointer;
+}

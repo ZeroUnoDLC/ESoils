@@ -35,14 +35,14 @@ async function login() {
     };
 
     try {
-        const res = await getId("login", data);
+        let res = await getId("login", data);
         // Aquí puedes hacer algo con el resultado obtenido
-        alert(res);
-        if(res==null){
-            alert("inicio exitoso");
+        if(res!="null"){
             localStorage.setItem('id_user', res);
+            window.location.href = "Index.html";
         }else{
-            alert("credenciales incorrectas");
+            alert("incorrect credentials");
+            window.location.href = "Login-general.html";
         }
     } catch (error) {
         console.log(error);
