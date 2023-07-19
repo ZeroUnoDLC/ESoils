@@ -1,27 +1,38 @@
-let idnumber = document.getElementById("code_number");
+var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsueladd1;
+let idnumber;
 window.onload = function () {
-    if (idnumber != null) {
-        console.log("testtting_code");
+    idnumber = document.getElementById("code_number");
+    if (idnumber != null && idnumber != undefined) {
+        //console.log("testtting_code");
         idnumber.addEventListener("input", function () {
             // La cadena que quieres convertir
             var cadena = localStorage.getItem("datos_registro");
-
             // Usar JSON.parse() para convertir la cadena en un objeto
             var objeto = JSON.parse(cadena);
 
             // Mostrar el objeto en la consola
-            console.log(objeto);
+            //console.log(objeto);
+        })
+}}
 
-            if (idnumber.value == objeto.randomNumber) {
-                let submit = document.getElementById("submit");
-                submit.disabled = false;
-            } else {
-                submit.disabled = true;
-            }
-        });
+async function numRegSuelAdd() {
+    //alert("testtttt");
+    try {
+        let data={".":"."};
+        const res = await getId("numRegSuelAdd", data);
+        // Aquí puedes hacer algo con el resultado obtenido
+        var numero = res.slice(1, -1); 
+        localStorage.setItem('numsueladd1', numero);
+        //console.log(res);
+    } catch (error) {
+        console.log(error);
     }
 }
+window.onload = numRegSuelAdd;
 
+
+//////////////////////////////////
+//////VARIABLE URL NECESARIA//////
 //URL NECESARIA
 const url = "http://localhost:3000/";//no modificar, se modifica cuando esté en produccion
 //FUNCION NECESARIA
@@ -60,6 +71,12 @@ async function login() {
     try {
         const res = await getId("login", data);
         // Aquí puedes hacer algo con el resultado obtenido
+
+        //alert(res);
+        if (res != "null") {
+            alert("inicio exitoso");
+            localStorage.setItem('id_user', res);
+            window.location.href = "Photo_Location.html";
         alert(res);
         if (res == null) {
             alert("inicio exitoso");
@@ -67,7 +84,7 @@ async function login() {
         } else {
             alert("credenciales incorrectas");
         }
-    } catch (error) {
+    }} catch (error) {
         console.log(error);
     }
 }
@@ -136,6 +153,11 @@ async function postFisicas() {
     try {
         const res = await getId("postFisicas", data);
         // Aquí puedes hacer algo con el resultado obtenido
+        
+        //alert(res);
+        localStorage.setItem("datos_registro", res);
+        window.location.href = "Sign-up-2.html";
+
         //alert(res);
         if (res != "null") {
             alert("Successfully Registered Physical Properties");
@@ -391,6 +413,8 @@ async function postRegistro_Usuario2() {
         //console.log(data);
         const res = await getId("postRegistro_Usuario2", data);
         // Aquí puedes hacer algo con el resultado obtenido
+        
+        //alert(res);
         alert(res);
         window.location.href = "Login-general.html";
 
@@ -400,6 +424,12 @@ async function postRegistro_Usuario2() {
 }
 
 async function PostRegistro_Suelos() {
+    idcli=localStorage.getItem("id_user");
+    latitud=localStorage.getItem("latitud");
+    longitud=localStorage.getItem("longitud");
+    altitud=localStorage.getItem("elevacion");
+    codprov=document.getElementsByName("codprov")[0].value;
+    codcan=document.getElementsByName("codcan")[0].value;
 
     let inputs = document.getElementsByTagName("input");
     //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
@@ -407,20 +437,24 @@ async function PostRegistro_Suelos() {
     //localStorage.setItem("nombreDato", "nuevovalor"); -> actualizar dato
 
 
-    // let data = {
-    //     name: inputs[0].value,
-    //     surname: inputs[1].value,
-    //     id_number: inputs[2].value,
-    //     email: inputs[3].value,
-    //     password: inputs[4].value,
-    //     r_password: inputs[5].value
-    // };
+    let data = {
+        idcli: idcli,
+        codprov: codprov,
+        codcan: codcan,
+        soil_picture: soil_picture,
+        altitude: altitud,
+        latitude: latitud,
+        length: longitud
+    };
 
+    console.log(data);
     // try {
     //     //console.log(data);
-    //     const res = await getId("postRegistro_Usuario1", data);
+    //     const res = await getId("PostRegistro_Suelos", data);
     //     // Aquí puedes hacer algo con el resultado obtenido
     //     alert(res);
+    //     localStorage.setItem("datos_registro_suelo", res);
+    //     window.location.href = "Fisicas-1.html";
     //     localStorage.setItem("datos_registro", res);
     //     window.location.href = "Sign-up-2.html";
 

@@ -232,3 +232,33 @@ a{
 	text-decoration: none;
 	text-align: center;
 }
+
+.dropzone {
+	background-image: url("../IMAGENES/Example_Soil.png");
+	background-size: cover;
+  }
+  #formDrop{
+    display: flex;
+    justify-content: center;
+	align-items: center;
+    width: 240px;
+    height: 240px;
+    padding: 0px !important;
+	font-family: 'Archivo', sans-serif;
+	color: white;
+	font-weight: 1;
+	border-radius: 20%;
+	border-color: #E8EAEE;
+}
+  
+/* #txtDrop{
+	background-color: transparent;
+	border: solid 0px;
+	color: white;
+	height: 240px;
+	width: 240px;
+	font-size: 21px;
+	font-family: 'Archivo', sans-serif;
+	font-weight: 1;
+	z-index: 2;
+} */
