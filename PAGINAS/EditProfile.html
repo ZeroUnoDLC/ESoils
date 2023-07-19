@@ -9,7 +9,7 @@
 </head>
 
 <body id="idbody">
-	<header class="Header">
+	<header class="Header" id="header">
 		<img src="../IMAGENES/Logo.png" width="168.32" height="154" alt="Logo ESoils" class="Logo" />
 		<ul class="menu">
 			<div id="cont_menu">
@@ -41,7 +41,7 @@
 			</div>
 			<form action="http://localhost:3000/postEditProfile" method="" id="formEditProfile">
 				<div class="classimage">
-					<img src="../images/Profile Photo.png" alt="Profile Photo">
+					<img src="../images/Profile Photo.png" alt="Profile Photo" width="100px" height="130px">
 
 				</div>
 
@@ -105,12 +105,15 @@
 					<!--input class = "css-boton save" type="submit" value="Save Changes"-->
 					<button class="css-boton save" type="submit">Save Changes</button>
 				</div>
-
 			</form>
+			<div class="logout">
+				<button class="css-boton save"  onclick= "logout()">log out</button>
+			</div>
 		</div>
 	</div>
 
 	<script src="../js/Interaccion_Paginas.js"></script>
+	<script src="../js/encabezado.js"></script>
 </body>
 
 </html>

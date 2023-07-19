@@ -1,4 +1,4 @@
-/* CSS Document */
+CSS Document
 
 #idbody{
 	background: #E8EAEE;
@@ -13,19 +13,14 @@
 	padding-bottom: 110px;
 }
 
-img{
-	width: 180px;
-}
-
 .ul1 li{
 	display: grid;
 	justify-content: flex-end;
 	margin-top: 12px;
 	margin-bottom: 10px;
+	margin-right: 30px;
 }
-.ul1{
-	
-}
+
 .ul2 li{
 	position: relative;
 	margin-top: 8px;
@@ -35,14 +30,15 @@ img{
 	border-radius: 10px;
 	padding: 5px;
 	border: none;
+	background-color: antiquewhite;
 }
 
 .noeditables{
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 3px;
-	
-} 
+
+}
 .noeditables li{
 	margin-top: 2px;
 }
@@ -50,7 +46,6 @@ img{
 .classul{
 	display: flex;
 	justify-content: center;
-	
 }
 
 ul{
@@ -122,9 +117,15 @@ ul{
 
 .file {
    display: none;
-	
+
 }
 .uploadbuton{
 	display: flex;
 	justify-content: center;
+}
+
+.logout{
+	display: flex;
+	justify-content:flex-end;
+	padding-right: 100px;
 }
