@@ -1,19 +1,28 @@
 var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsueladd1;
 let idnumber;
-window.onload = function () {
+    console.log("tetetetete");
     idnumber = document.getElementById("code_number");
+    
     if (idnumber != null && idnumber != undefined) {
+        
         //console.log("testtting_code");
         idnumber.addEventListener("input", function () {
             // La cadena que quieres convertir
-            var cadena = localStorage.getItem("datos_registro");
-            // Usar JSON.parse() para convertir la cadena en un objeto
-            var objeto = JSON.parse(cadena);
+            var cadena = localStorage.getItem("datos_registro_usuario");
 
-            // Mostrar el objeto en la consola
-            //console.log(objeto);
+    // Usar JSON.parse() para convertir la cadena en un objeto
+    let objeto = JSON.parse(cadena);
+
+            console.log(objeto.randomNumber);
+
+            if (idnumber.value == objeto.randomNumber) {
+                let submit = document.getElementById("submit");
+                submit.disabled = false;
+            } else {
+                submit.disabled = true;
+            }
         })
-}}
+}
 
 async function numRegSuelAdd() {
     //alert("testtttt");
@@ -92,9 +101,18 @@ async function postRegistro_Usuario1() {
         surname: inputs[1].value,
         id_number: inputs[2].value,
         email: inputs[3].value,
-        password: inputs[4].value,
-        r_password: inputs[5].value
+        password: inputs[4].value
     };
+    try {
+        const res = await getId("postRegistro_Usuario1", data);
+        alert(res);
+        localStorage.setItem("datos_registro_usuario", res);
+        location.href = "./Sign-up-2.html";
+        // Aquí puedes hacer algo con el resultado obtenido
+    
+    } catch (error) {
+        console.log(error);
+    }
 }
 //////////////FORMULARIO FÍSICAS////////////////////////////////
 async function postFisicas() {
@@ -335,11 +353,11 @@ async function postBiologicas2() {
 
 
 async function postRegistro_Usuario2() {
-    let inputs = document.getElementsByTagName("input");
+    //let inputs = document.getElementsByTagName("input");
     //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
     //localStorage.setItem("nombreDato", "valorDato"); -> nomenclatura agregar dato
     //localStorage.setItem("nombreDato", "nuevovalor"); -> actualizar dato
-    var cadena = localStorage.getItem("datos_registro");
+    var cadena = localStorage.getItem("datos_registro_usuario");
 
     // Usar JSON.parse() para convertir la cadena en un objeto
     let data = JSON.parse(cadena);
