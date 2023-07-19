@@ -3,10 +3,12 @@
 
 <head>
 	<meta charset="utf-8">
+	<title>Register</title>
 	<script type='text/javascript'
 		src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key= AoOD7rLpof2UOkBduy8To8wNaH_TNPTkLRIZxwzGB4XCBwO4l9DIqzT-vJ4_jn7X'
 		async defer></script>
-	<title>Register</title>
+	<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 	<link href="../ESTILOS/Estilo_Index.css" rel="stylesheet" type="text/css">
 	<link href="../ESTILOS/Estilo_Formularios.css" rel="stylesheet" type="text/css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +18,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="numRegSuelAdd();">
 	<header class="Header">
 		<img src="../IMAGENES/Logo.png" width="168.32" height="154" alt="Logo ESoils" class="Logo" />
     <ul class="menu">
@@ -34,14 +36,13 @@
 	</header>
 	<section class="Data">
 		<h1 class="Titulo_propiedades font_preview_soil">Preview of soil</h1>
-		<form action="http://localhost:3000/PostRegistro_Suelos" method="post">
+		<div>
 			<div class="Steps steps_preview_soil">
 				<ul class="Tipo tipo_preview_soil">
 					<li id="cont_preview_soil">
-						<img src="../IMAGENES/Example_Soil.png" width="240" alt="" id="prev_img" />
-						<!--<input type="file" id="sel_img_prev_soil" name="myfile">-->
-						<input type="file" name="soil_picture" id="files" class="hidden" accept="image/*"/>
-						<label id="sel_img_prev_soil" for="files">Select image</label>
+						<div class="dropzone" id="formDrop" type="button"></div>
+						<!-- <img alt="Imagen de pastel" id="image-preview"> -->
+						<!-- <input class="col" type="file" id="file-input" name="archivo"> -->
 					</li>
 					<li><strong class="font_preview_soil">Location</strong></li>
 					<li>
@@ -65,14 +66,16 @@
 			<div class="Botones_sumbit">
 				<a href="../PAGINAS/Opciones_mis_registros.html" class="submit">← Previus</a>
 				<!--button class="submit">← Previus</!--button-->
-				<button href="../PAGINAS/Fisicas-1.html" type="submit" class="submit">Next →<button>
-				
+				<button href="../PAGINAS/Fisicas-1.html" type="submit" class="submit"
+					onclick="PostRegistro_Suelos()">Next →</button>
 			</div>
-		</form>
+			</form>
 	</section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="../js/script_Maps.js"></script>
 <script src="../js/Interaccion_Paginas.js"></script>
+<script src="../js/Funciones.js"></script>
+<script src="../js/dropzone.js"></script>
 
 </html>

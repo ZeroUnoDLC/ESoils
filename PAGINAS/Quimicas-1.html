@@ -33,7 +33,7 @@
 		</div>
 	</header>
 	<section class="Data">
-		<form action="http://localhost:3000/postQuimicas" class="form" method="post">
+		<div class="form">
 			<h1 class="Titulo_propiedades">Chemical properties</h1>
 			<div class="form-step form-step-active">
 				<!-- Progress bar 1-->
@@ -59,12 +59,11 @@
 					</ul>
 
 					<ul class="Values">
-						<li><input type="number" name="alkalinity_or_acidity" class="valores" placeholder="0.00"></li>
-						<li><input type="number" name="organic_material" class="valores" placeholder="0.00"></li>
-						<li><input type="number" name="total_phosphorus" class="valores" placeholder="0.00"></li>
-						<li><input type="number" name="extractable_sulfur" class="valores" placeholder="0.00"></li>
-						<li><input type="number" name="interchangeable_aluminum" class="valores" placeholder="0.00">
-						</li>
+						<li><input type="number" name="alkalinity_or_acidity" class="valores" placeholder="0.00" min="0" max="14"></li>
+						<li><input type="number" name="organic_material" class="valores" placeholder="0.00" min="0" max="100"></li>
+						<li><input type="number" name="total_phosphorus" class="valores" placeholder="0.00" min="0" max="100"></li>
+						<li><input type="number" name="extractable_sulfur" class="valores" placeholder="0.00" min="0" max="100"></li>
+						<li><input type="number" name="interchangeable_aluminum" class="valores" placeholder="0.00" min="0" max="10"></li>
 					</ul>
 
 					<ul class="Descripcion">
@@ -76,7 +75,7 @@
 					</ul>
 				</div>
 				<div class="Botones_sumbit">
-					<a href="#" class="submit btn-prev">← Previus</a>
+					<a href="./Fisicas-1.html" class="submit">← Previus</a>
 					<a href="#" class="submit btn-next">Next →</a>
 				</div>
 			</div>
@@ -166,13 +165,13 @@
 				<div class="Botones_sumbit">
 					<a href="#" class="submit btn-prev">← Previus</a>
 					<!--a href="#" class="submit btn-next">Next →</!--a-->
-					<button type="submit" class="submit btn-next">Next →</button>
+					<button class="submit" onclick="postQuimicas()">Next →</button>
 				</div>
 			</div>
-		</form>
+		</div>
 	</section>
 </body>
 <script src="../js/Interaccion_Paginas.js"></script>
 <script src="../js/fisicas.js"></script>
-
+<script src="../js/Funciones.js"></script>
 </html>

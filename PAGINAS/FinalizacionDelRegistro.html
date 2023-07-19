@@ -28,7 +28,7 @@
         </div>
     </header>
     <div class="espacio"></div>
-    <form action="http://localhost:3000/postClasification" method="post" class="contenedor_clasificacion">
+    <div class="contenedor_clasificacion">
         <div class="titles">
             <h1>Registration Completion</h1>
             <h2>Soil Classification</h2>
@@ -98,9 +98,9 @@
             <h3 id="suelo"></h3>
         </div>
         <div class="btnfinal">
-            <button type="submit" class="css-boton Finalizar">Finalizar →</button>
+            <button onclick="postClasification()" class="css-boton Finalizar">Finalizar →</button>
         </div>
-    </form>
+    </div>
 </body>
 <script src="../js/js_FinalizacionDelRegistro.js"></script>
 <script src="../js/Interaccion_Paginas.js"></script>

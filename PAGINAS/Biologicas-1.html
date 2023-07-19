@@ -31,7 +31,7 @@
     </div>
   </header>
   <section class="Data">
-    <form action="http://localhost:3000/postBiologicas" method="post" id="formPrincipal">
+    <div id="formPrincipal">
       <h1 class="Titulo_propiedades">Biological Properties</h1>
       <div class="form-step form-step-active">
 
@@ -60,23 +60,23 @@
           <th colspan="4"></th>
         </tr>
         <tr>
-          <form name="formSec1" action="http://localhost:3000/postBiologicasSub1" method="post" id="formSecund1">
+          <tr name="formSec1" id="formSecund1">
             <th>Types of organisms present</th>
-            <td><input type="text" name="organism" class="valores txt_value_biological" id ="organismsPresent" placeholder="(Worms, nematodes, etc.)"></td>
+            <td><input type="text" name="organism" class="valores txt_value_biological" id ="organism" placeholder="(Worms, nematodes, etc.)"></td>
             <th>Quantity</th>
-            <td><input type="number" name="number_organism" id="numOrganisms" class="valores" min="1"></td>
-            <td><button type="submit" class="submit btn_añadir">Add</button> </td>
-          </form>
-          
+            <td><input type="number" name="number_organism" id="number_organism" class="valores" min="1"></td>
+            <td><button class="submit btn_añadir" onclick="postBiologicas1()">Add</button> </td>
+          </tr>
+         
         </tr>
         <tr>
           <th class="td_top">Additional remarks</th>
-          <td colspan="3"><textarea id="txtOrganisms" name="organisms_description" class="valores txtarea_biological" placeholder="(“The organisms were mostly found on the surface....”)"></textarea></td>
+          <td colspan="3"><textarea  name="organisms_description" class="valores txtarea_biological" placeholder="(“The organisms were mostly found on the surface....”)"></textarea></td>
           <td></td>
         </tr>
         <tr>
           <th></th>
-          <th colspan="3"><textarea class="valores txtarea_biological bg_wh_txt"></textarea></th>
+          <th colspan="3"><textarea id="txtOrganisms" class="valores txtarea_biological bg_wh_txt"></textarea></th>
           <td></td>
         </tr>
       </table>
@@ -192,23 +192,23 @@
               <th colspan="4"></th>
             </tr>
             <tr>
-              <form action="http://localhost:3000/postBiologicas2" method="post" id="formSec2">
+              <tr >
                 <th>Types of macroinvertebrates</th>
                 <td><input type="text" id="macroinvertebrates" name="macroinvertebrates" class="valores txt_value_biological" placeholder="(Beetles, mealybugs, etc.)"></td>
                 <th>Quantity</th>
                 <td><input type="number" id="numInvertebrates" name="number_macroinvertebrates" class="valores" min="1"></td>
-                <td><button type="submit" class="submit btn_añadir">Add</button></td>
-              </form>
+                <td><button onclick="postBiologicas2()" class="submit btn_añadir">Add</button></td>
+              </tr>
             </tr>
             <tr>
               <th class="td_top">Additional remarks</th>
-              <td colspan="3"><textarea  id="txtMacroinvertebrates" class="valores txtarea_biological" name="macroinvertebrates_description"
+              <td colspan="3"><textarea  class="valores txtarea_biological" name="macroinvertebrates_description"
                   placeholder="(“Macroinvertebrates were mostly found on the surface....”)"></textarea></td>
               <td></td>
             </tr>
             <tr>
               <th></th>
-              <th colspan="3"><textarea class="valores txtarea_biological bg_wh_txt"></textarea></th>
+              <th colspan="3"><textarea class="valores txtarea_biological bg_wh_txt" id="txtMacroinvertebrates"></textarea></th>
               <td></td>
             </tr>
           </table>
@@ -219,7 +219,6 @@
         </div>
       </div>
       <div class="form-step">
-        <!-- Progress bar 3-->
         <!-- Progress bar 4-->
         <div class="nav_steps">
           <a href="Biologicas-1.html" class="dot bg_wh">1</a>
@@ -266,14 +265,14 @@
         <div class="Botones_sumbit">
           <a href="#" class="submit btn-prev">← Previus</a>
           <!--a href="#" class="submit btn-next">Next →</!--a-->
-          <button type="submit" class="submit btn-next"> Next →</button>
+          <button onclick="postBiologicas()" class="submit btn-next"> Next →</button>
         </div>
       </div>
-    </form>
+    </div>
   </section>
 </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="../js/Interaccion_Paginas.js"></script>
-  <script src="../js/btnAddBiologicas.js"></script>
   <script src="../js/fisicas.js"></script>
+  <script src="../js/Funciones.js"></script>
 </html>
