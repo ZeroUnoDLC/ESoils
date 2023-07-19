@@ -12,8 +12,8 @@ window.onload = function () {
 
             // Mostrar el objeto en la consola
             //console.log(objeto);
-    }
-}
+        })
+}}
 
 async function numRegSuelAdd() {
     //alert("testtttt");
@@ -84,10 +84,10 @@ async function login() {
         } else {
             alert("credenciales incorrectas");
         }
-    } catch (error) {
+    }} catch (error) {
         console.log(error);
     }
-}}
+}
 
 async function postRegistro_Usuario1() {
     let inputs = document.getElementsByTagName("input");
