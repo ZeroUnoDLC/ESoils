@@ -1,3 +1,4 @@
+//variables para el registro de suelo y generar el id_suelo del primer regitro
 var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsuelandidcli;
 let idnumber;
 var dir_page = window.location.href;
@@ -5,7 +6,6 @@ console.log(dir_page);
 console.log(dir_page.endsWith("Fisicas-1.html"));
 if (dir_page.endsWith("Fisicas-1.html")) {
     window.onload = numRegSuelAdd;
-  alert(localStorage.getItem('idesuelo'));
 }
     idnumber = document.getElementById("code_number");
     
@@ -41,7 +41,7 @@ async function numRegSuelAdd() {
     // Usar JSON.parse() para convertir la cadena en un objeto
     let objeto = JSON.parse(cadena);
     let num=parseInt(objeto.numsuelo)+1;
-    localStorage.setItem('idesuelo',objeto.namecli.substring(0,3)+num);
+    localStorage.setItem('ide_suelo',objeto.namecli.substring(0,3)+num);
 
         //console.log(res);
     } catch (error) {
