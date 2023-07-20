@@ -1,12 +1,12 @@
 //variables para el registro de suelo y generar el id_suelo del primer regitro
-var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsuelandidcli;
+var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsuelandidcli, ide_suelo;
 let idnumber;
 var dir_page = window.location.href;
 console.log(dir_page);
 console.log(dir_page.endsWith("Fisicas-1.html"));
-if (dir_page.endsWith("Fisicas-1.html")) {
-    window.onload = numRegSuelAdd;
-}
+// if (dir_page.endsWith("Fisicas-1.html")) {
+//     window.onload = numRegSuelAdd;
+// }
     idnumber = document.getElementById("code_number");
     
     if (idnumber != null && idnumber != undefined) {
@@ -154,12 +154,10 @@ async function postFisicas() {
     let average_temperature = document.getElementsByName("average_temperature")[0].value;
     let rainfall_regime = document.getElementsByName("rainfall_regime")[0].value;
 
-    /*
-    var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
-
+    
+    //var idcli = localStorage.getItem("idcli"); 
+    const suelorec= localStorage.getItem("ide_suelo"); 
+    let ide_suelo = suelorec.toString(); 
     let data = {
         ide_suelo: ide_suelo,
         apparent_density: apparent_density, real_density: real_density,
@@ -211,11 +209,9 @@ async function postQuimicas() {
     let extractable_zinc = document.getElementsByName("extractable_zinc")[0].value;
     let boron = document.getElementsByName("boron")[0].value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -265,11 +261,9 @@ async function postBiologicas() {
     let measurement_method = document.getElementsByName("measurement_method")[0].value;
     let additional_remarks = document.getElementsByName("additional_remarks")[0].value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -292,8 +286,7 @@ async function postBiologicas() {
         //alert(res);
         if (res != "null") {
             //localStorage.setItem('id_user', res);
-
-
+            window.location.href = "FinalizacionDelRegistro.html";
         }
     } catch (error) {
         console.log(error);
@@ -305,11 +298,9 @@ async function postBiologicas1() {
     let organism = document.getElementById("organism").value;
     let number_organism = document.getElementById("number_organism").value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -337,11 +328,9 @@ async function postBiologicas2() {
     let macroinvertebrates = document.getElementById("macroinvertebrates").value;
     let number_macroinvertebrates = document.getElementById("numInvertebrates").value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -396,14 +385,17 @@ async function PostRegistro_Suelos() {
     codprov=document.getElementsByName("codprov")[0].value;
     codcan=document.getElementsByName("codcan")[0].value;
     
+    ide_suelo=localStorage.getItem("ide_suelo");
 
     let inputs = document.getElementsByTagName("input");
     //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
     //localStorage.setItem("nombreDato", "valorDato"); -> nomenclatura agregar dato
     //localStorage.setItem("nombreDato", "nuevovalor"); -> actualizar dato
 
+    alert(ide_suelo);
 
     let data = {
+        ide_suelo: ide_suelo,
         idcli: idcli,
         codprov: codprov,
         codcan: codcan,
