@@ -1,6 +1,11 @@
-var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsueladd1;
+var soil_picture, idcli, codprov, codcan, altitud, latitud, longitud, numsuelandidcli;
 let idnumber;
-    console.log("tetetetete");
+var dir_page = window.location.href;
+console.log(dir_page);
+console.log(dir_page.endsWith("Fisicas-1.html"));
+if (dir_page.endsWith("Fisicas-1.html")) {
+  alert(localStorage.getItem('idesuelo'));
+}
     idnumber = document.getElementById("code_number");
     
     if (idnumber != null && idnumber != undefined) {
@@ -27,16 +32,23 @@ let idnumber;
 async function numRegSuelAdd() {
     //alert("testtttt");
     try {
-        let data={".":"."};
+        let data={idcli: localStorage.getItem("id_user")};
         const res = await getId("numRegSuelAdd", data);
         // Aquí puedes hacer algo con el resultado obtenido
-        var numero = res.slice(1, -1); 
-        localStorage.setItem('numsueladd1', numero);
+        var cadena = res;
+
+    // Usar JSON.parse() para convertir la cadena en un objeto
+    let objeto = JSON.parse(cadena);
+    let num=parseInt(objeto.numsuelo)+1;
+    localStorage.setItem('idesuelo',objeto.namecli.substring(0,3)+num);
+
         //console.log(res);
     } catch (error) {
         console.log(error);
     }
 }
+
+
 window.onload = numRegSuelAdd;
 
 
@@ -81,7 +93,8 @@ async function login() {
         let res = await getId("login", data);
         // Aquí puedes hacer algo con el resultado obtenido
         if(res!="null"){
-            localStorage.setItem('id_user', res);
+            var numero = res.slice(1, -1); 
+            localStorage.setItem('id_user', numero);
             window.location.href = "Index.html";
         }else{
             alert("incorrect credentials");
@@ -403,7 +416,6 @@ async function PostRegistro_Suelos() {
         //console.log(data);
         const res = await getId("PostRegistro_Suelos", data);
         // Aquí puedes hacer algo con el resultado obtenido
-        alert(res);
         localStorage.setItem("datos_registro_suelo", res);
         window.location.href = "Fisicas-1.html";
 
@@ -411,4 +423,5 @@ async function PostRegistro_Suelos() {
         console.log(error);
     }
 }
+
 
