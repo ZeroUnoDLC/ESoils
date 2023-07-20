@@ -285,7 +285,7 @@ async function postBiologicas() {
         //alert(res);
         if (res != "null") {
             //localStorage.setItem('id_user', res);
-
+            window.location.href = "FinalizacionDelRegistro.html";
         }
     } catch (error) {
         console.log(error);
