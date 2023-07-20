@@ -4,6 +4,7 @@ var dir_page = window.location.href;
 console.log(dir_page);
 console.log(dir_page.endsWith("Fisicas-1.html"));
 if (dir_page.endsWith("Fisicas-1.html")) {
+    window.onload = numRegSuelAdd;
   alert(localStorage.getItem('idesuelo'));
 }
     idnumber = document.getElementById("code_number");
@@ -49,7 +50,6 @@ async function numRegSuelAdd() {
 }
 
 
-window.onload = numRegSuelAdd;
 
 
 //////////////////////////////////
