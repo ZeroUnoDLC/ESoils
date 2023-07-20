@@ -105,7 +105,6 @@ async function postRegistro_Usuario1() {
     };
     try {
         const res = await getId("postRegistro_Usuario1", data);
-        alert(res);
         localStorage.setItem("datos_registro_usuario", res);
         location.href = "./Sign-up-2.html";
         // Aquí puedes hacer algo con el resultado obtenido
@@ -368,7 +367,6 @@ async function postRegistro_Usuario2() {
         // Aquí puedes hacer algo con el resultado obtenido
         
         //alert(res);
-        alert(res);
         window.location.href = "Login-general.html";
 
     } catch (error) {
