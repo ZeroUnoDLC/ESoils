@@ -153,11 +153,9 @@ async function postFisicas() {
     let average_temperature = document.getElementsByName("average_temperature")[0].value;
     let rainfall_regime = document.getElementsByName("rainfall_regime")[0].value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -210,11 +208,9 @@ async function postQuimicas() {
     let extractable_zinc = document.getElementsByName("extractable_zinc")[0].value;
     let boron = document.getElementsByName("boron")[0].value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -264,11 +260,9 @@ async function postBiologicas() {
     let measurement_method = document.getElementsByName("measurement_method")[0].value;
     let additional_remarks = document.getElementsByName("additional_remarks")[0].value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -304,11 +298,9 @@ async function postBiologicas1() {
     let organism = document.getElementById("organism").value;
     let number_organism = document.getElementById("number_organism").value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
@@ -336,11 +328,9 @@ async function postBiologicas2() {
     let macroinvertebrates = document.getElementById("macroinvertebrates").value;
     let number_macroinvertebrates = document.getElementById("numInvertebrates").value;
 
-    /*
+    
     var idcli = localStorage.getItem("idcli"); 
-    var ide_suelo = localStorage.getItem("ide_suelo"); */
-    //var idcli = "0401751227"
-    var ide_suelo = "SOILRRDSQw";
+    var ide_suelo = localStorage.getItem("ide_suelo"); 
 
     let data = {
         ide_suelo: ide_suelo,
