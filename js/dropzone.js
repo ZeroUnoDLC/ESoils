@@ -42,12 +42,22 @@ const dropzone = new Dropzone("div#formDrop", {
       });
     },
     renameFile: function (file) {
+      // Obtener el nombre completo del archivo, incluida la extensión
       let str1 = file.name;
-      let str2 = str1.substring(str1.lastIndexOf("."));
-      let nombrearch=localStorage.getItem('numsueladd1');
-      //var numero = nombrearch.slice(1, -1); // elimina el primer y último carácter console.log(numero); // muestra “5”
-      //console.log("numero: "+numero);
-      //alert("esperar");
+    
+      // Usar `substring` para extraer la parte del nombre del archivo después del último punto
+      let str2 = str1.substring(str1.lastIndexOf(".")-1);
+      alert("str2: "+str2);
+    
+      // Obtener el nombre que está almacenado en el localStorage bajo la clave 'numsueladd1'
+      let numsuelo = localStorage.getItem('numsueladd1');
+    
+      // Guardar el nombre completo del archivo en el localStorage bajo la clave 'soil_picture'
+      localStorage.setItem('soil_picture', "../images/"+numsuelo+str2);
+    
+      // Concatenar el nombre almacenado en 'numsueladd1' con la extensión del archivo (str2)
+      // Esto dará como resultado el nuevo nombre del archivo con su extensión
+      // Por ejemplo, si 'numsueladd1' es 'imagen' y la extensión del archivo es '.jpg', el nuevo nombre será 'imagen.jpg'
       return nombrearch + str2;
     }
   });

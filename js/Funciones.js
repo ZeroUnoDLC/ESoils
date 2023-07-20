@@ -42,6 +42,7 @@ async function numRegSuelAdd() {
     let objeto = JSON.parse(cadena);
     let num=parseInt(objeto.numsuelo)+1;
     localStorage.setItem('ide_suelo',objeto.namecli.substring(0,3)+num);
+    localStorage.setItem('numsueladd1',objeto.numsuelo);
 
         //console.log(res);
     } catch (error) {
@@ -394,6 +395,7 @@ async function PostRegistro_Suelos() {
     altitud=localStorage.getItem("elevacion");
     codprov=document.getElementsByName("codprov")[0].value;
     codcan=document.getElementsByName("codcan")[0].value;
+    
 
     let inputs = document.getElementsByTagName("input");
     //var id_user = localStorage.getItem("nombreDato"); ->es para obtener un dato
